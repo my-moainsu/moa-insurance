@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0046)file:///C:/Users/OWNER/Downloads/index_10.html -->
+<!-- saved from url=(0046)file:///C:/Users/OWNER/Downloads/index_12.html -->
 <html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -772,6 +772,13 @@ function loadAgentFromURL() {
   const params = new URLSearchParams(window.location.search);
   const agentId = params.get('id') || 'jungilseok';
   window.__agentId = agentId;
+
+  // ?id= 파라미터가 있으면 헤더 이름 숨김
+  const params2 = new URLSearchParams(window.location.search);
+  if (params2.has('id')) {
+    const hdName = document.querySelector('.hd-name');
+    if (hdName) hdName.style.display = 'none';
+  }
 
   // 기본값 (jungilseok) 이면 이미 HTML에 있으므로 API 호출 불필요
   if (agentId === 'jungilseok') return;
